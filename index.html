@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Dzień Mamy</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #fff0f5;
+            text-align: center;
+            padding: 20px;
+            display: none;
+        }
+        .heart {
+            color: red;
+            font-size: 50px;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        .balloons {
+            position: absolute;
+            top: -100px;
+            animation: float 10s infinite;
+        }
+        @keyframes float {
+            0% { top: 100%; }
+            100% { top: -200px; }
+        }
+        .content {
+            display: none;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: pink;
+            border: none;
+            cursor: pointer;
+        }
+        img {
+            width: 300px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="audio/music.mp3" type="audio/mp3">
+        Twoja przeglądarka nie wspiera odtwarzacza audio.
+    </audio>
+    <div id="login">
+        <h2>Wpisz hasło, aby odblokować niespodziankę 💌</h2>
+        <input type="password" id="password" placeholder="Hasło">
+        <button onclick="checkPassword()">Otwórz</button>
+    </div>
+
+    <div class="content" id="mainContent">
+        <div class="heart">❤️</div>
+        <h1>Jesteś najlepszą mamą na świecie!</h1>
+        <h2>Wszystkiego najlepszego! Kochamy Cię 💖🎈</h2>
+        <img src="images/child1.jpg" alt="Dziecko 1">
+        <img src="images/child2.jpg" alt="Dziecko 2">
+    </div>
+
+    <script>
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            if (password === "Najlepszego") {
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('mainContent').style.display = 'block';
+                document.body.style.display = 'block';
+            } else {
+                alert("Niepoprawne hasło!");
+            }
+        }
+    </script>
+</body>
+</html>
